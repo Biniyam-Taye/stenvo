@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -42,7 +44,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <main className="flex-1">
-        <section className="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden">
+        <section className="relative pt-12 pb-8 lg:pt-16 lg:pb-12 overflow-hidden">
           <div className="container mx-auto px-4 lg:px-6 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
@@ -265,76 +267,264 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How it Works */}
-        <section id="how-it-works" className="py-24 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">How Stenvo Works</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">A seamless experience from design to delivery, built to guarantee you get exactly what you want.</p>
+        {/* Product Categories Section - Designed to match exactly */}
+        <section className="bg-[#f4f3ec] pt-12 pb-20 px-6 lg:px-16 overflow-hidden min-h-[90vh] flex flex-col justify-center">
+          <style dangerouslySetInnerHTML={{
+            __html: `
+            .cards-scroll::-webkit-scrollbar { display: none; }
+            .cards-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+          `}} />
+
+          <div className="max-w-[1400px] mx-auto w-full">
+            {/* Header row */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 relative z-10">
+              <div>
+                <p className="text-[13px] font-medium uppercase tracking-[0.15em] text-gray-600 mb-4 font-sans">Elevate your brand</p>
+                <h2 className="text-[40px] md:text-[56px] font-medium text-[#111] leading-[1.05] tracking-tight max-w-[600px] font-sans">
+                  Comprehensive Custom Merch for Everyone
+                </h2>
+              </div>
+              {/* Arrows */}
+              <div className="flex gap-3 mb-2 md:mb-4">
+                <button
+                  onClick={() => (document.getElementById('cards-track') as HTMLElement).scrollBy({ left: -340, behavior: 'smooth' })}
+                  className="w-12 h-12 rounded-full bg-[#111] text-white flex items-center justify-center hover:bg-gray-800 transition-colors shadow-lg"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+                </button>
+                <button
+                  onClick={() => (document.getElementById('cards-track') as HTMLElement).scrollBy({ left: 340, behavior: 'smooth' })}
+                  className="w-12 h-12 rounded-full bg-[#111] text-white flex items-center justify-center hover:bg-gray-800 transition-colors shadow-lg"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                </button>
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8 relative">
-              {[
-                { step: "1", title: "Design & Order", desc: "Use our editor to create or upload designs. Pay a 50% deposit.", icon: PenTool },
-                { step: "2", title: "Approve Mockup", desc: "We print 1 sample and send you photos. You approve or request changes.", icon: CheckCircle },
-                { step: "3", title: "Full Production", desc: "Once approved, the local supplier prints your full order.", icon: ShoppingBag },
-                { step: "4", title: "Delivery & Final Pay", desc: "Delivered to your campus pickup point. Pay the remaining 50%.", icon: Truck },
-              ].map((item, i) => (
-                <div key={i} className="relative flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center mb-6 relative z-10 text-primary">
-                    <item.icon className="h-8 w-8" />
+            {/* Scrollable cards */}
+            <div id="cards-track" className="cards-scroll flex gap-6 overflow-x-auto pb-8 -mx-6 px-6 lg:-mx-16 lg:px-16">
+
+              {/* Card 1 — Green */}
+              <div className="flex-shrink-0 w-[320px] h-[520px] bg-[#ccff00] rounded-[2rem] overflow-hidden flex flex-col relative group transition-transform hover:-translate-y-1">
+                <div className="p-7 relative z-10 flex-1 flex flex-col">
+                  {/* Tags */}
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="flex gap-2">
+                      <span className="bg-white text-[#111] text-[14px] font-medium px-4 py-1.5 rounded-full">Apparel</span>
+                      <span className="bg-white text-[#111] text-[14px] font-medium px-4 py-1.5 rounded-full">Bestseller</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-[#111] flex items-center justify-center text-[#ccff00]">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2z" /></svg>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                  {/* Title */}
+                  <h3 className="text-[36px] font-medium text-[#111] leading-[1.05] tracking-tight mb-3 font-sans">T-Shirts &<br />Hoodies</h3>
+                  <p className="text-[15px] text-[#222] leading-relaxed max-w-[90%] font-sans">For fashion brands and personal styles. Premium fabric, vivid prints.</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+                {/* Photo inset */}
+                <div className="absolute bottom-0 left-0 right-0 h-[260px]">
+                  <div className="absolute inset-0 rounded-t-[1.5rem] overflow-hidden bg-[#e0f2fe] transition-transform duration-500 group-hover:scale-[1.03]" style={{ transformOrigin: 'bottom' }}>
 
-        {/* Trust Section */}
-        <section className="py-24 bg-white border-t border-gray-100">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-12">The Stenvo Promise</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="border-none shadow-md bg-[#f0fdf4]">
-                <CardContent className="pt-8 pb-8 flex flex-col items-center text-center">
-                  <div className="p-3 bg-white rounded-full mb-4 text-primary shadow-sm"><CheckCircle className="h-6 w-6" /></div>
-                  <h3 className="font-semibold text-lg mb-2">Physical Mockups First</h3>
-                  <p className="text-gray-600 text-sm">Never guess how it looks. We send a photo of a real printed sample before doing the full batch.</p>
-                </CardContent>
-              </Card>
-              <Card className="border-none shadow-md bg-white">
-                <CardContent className="pt-8 pb-8 flex flex-col items-center text-center">
-                  <div className="p-3 bg-green-50 rounded-full mb-4 text-primary shadow-sm"><PenTool className="h-6 w-6" /></div>
-                  <h3 className="font-semibold text-lg mb-2">Free Expert Revisions</h3>
-                  <p className="text-gray-600 text-sm">Not happy with the mockup? You get up to 2 free design changes before we go into production.</p>
-                </CardContent>
-              </Card>
-              <Card className="border-none shadow-md bg-[#f0fdf4]">
-                <CardContent className="pt-8 pb-8 flex flex-col items-center text-center">
-                  <div className="p-3 bg-white rounded-full mb-4 text-primary shadow-sm"><ShoppingBag className="h-6 w-6" /></div>
-                  <h3 className="font-semibold text-lg mb-2">Premium Local Suppliers</h3>
-                  <p className="text-gray-600 text-sm">We only partner with the best print shops in Arba Minch to guarantee quality every time.</p>
-                </CardContent>
-              </Card>
+                    {/* Sliding Photos Container */}
+                    <div className="w-[200%] h-full flex animate-slide-photos">
+                      {/* Photo 1: Orange Faith Hoodie */}
+                      <div className="w-1/2 h-full relative">
+                        <img src="/orange-hoodie.jpg" alt="Orange Faith Hoodie Placeholder" className="w-full h-full object-cover object-top" />
+                        <div className="absolute inset-0 bg-black/10"></div>
+                      </div>
+                      {/* Photo 2: Hustle Houston T-shirt */}
+                      <div className="w-1/2 h-full relative">
+                        <img src="/hustle-tee.jpg" alt="Hustle Houston T-Shirt Placeholder" className="w-full h-full object-cover object-top" />
+                        <div className="absolute inset-0 bg-black/10"></div>
+                      </div>
+                    </div>
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60 z-10 pointer-events-none"></div>
+
+                    {/* Read More button overlay */}
+                    <div className="absolute bottom-6 left-6 flex items-center gap-3 z-20">
+                      <span className="text-white text-[15px] font-medium tracking-wide drop-shadow-md">Design Now</span>
+                      <div className="w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-[#111] shadow-lg group-hover:bg-white transition-colors">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2 — Beige */}
+              <div className="flex-shrink-0 w-[320px] h-[520px] bg-[#f0eae1] rounded-[2rem] overflow-hidden flex flex-col relative group transition-transform hover:-translate-y-1">
+                <div className="p-7 relative z-10 flex-1 flex flex-col">
+                  {/* Tags */}
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="flex gap-2">
+                      <span className="bg-white text-[#111] text-[14px] font-medium px-4 py-1.5 rounded-full shadow-sm">Accessories</span>
+                      <span className="bg-white text-[#111] text-[14px] font-medium px-4 py-1.5 rounded-full shadow-sm">Trending</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-[#dfd7c8] flex items-center justify-center text-white">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2z" /></svg>
+                    </div>
+                  </div>
+                  {/* Title */}
+                  <h3 className="text-[36px] font-medium text-[#111] leading-[1.05] tracking-tight mb-3 font-sans">Bags &<br />Tote Bags</h3>
+                  <p className="text-[15px] text-[#444] leading-relaxed max-w-[90%] font-sans">Stylish carry-alls printed with your unique design. Perfect for gifting and reselling.</p>
+                </div>
+                {/* Photo inset */}
+                <div className="absolute bottom-0 left-0 right-0 h-[260px]">
+                  <div className="absolute inset-0 rounded-t-[1.5rem] overflow-hidden bg-[#e8e4dc] transition-transform duration-500 group-hover:scale-[1.03]" style={{ transformOrigin: 'bottom' }}>
+                    {/* Sliding Photos Container */}
+                    <div className="w-[200%] h-full flex animate-slide-photos">
+                      {/* Photo 1 */}
+                      <div className="w-1/2 h-full relative">
+                        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=400&fit=crop" alt="Canvas Bag" className="w-full h-full object-cover object-top" />
+                      </div>
+                      {/* Photo 2 */}
+                      <div className="w-1/2 h-full relative">
+                        <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=400&fit=crop" alt="Leather Bag" className="w-full h-full object-cover object-center" />
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60 z-10 pointer-events-none"></div>
+                    {/* Read More button overlay */}
+                    <div className="absolute bottom-6 left-6 flex items-center gap-3 z-20">
+                      <span className="text-white text-[15px] font-medium tracking-wide drop-shadow-md">Design Now</span>
+                      <div className="w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-[#111] shadow-lg group-hover:bg-white transition-colors">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3 — Beige */}
+              <div className="flex-shrink-0 w-[320px] h-[520px] bg-[#f0eae1] rounded-[2rem] overflow-hidden flex flex-col relative group transition-transform hover:-translate-y-1">
+                <div className="p-7 relative z-10 flex-1 flex flex-col">
+                  {/* Tags */}
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="flex gap-2">
+                      <span className="bg-white text-[#111] text-[14px] font-medium px-4 py-1.5 rounded-full shadow-sm">Home</span>
+                      <span className="bg-white text-[#111] text-[14px] font-medium px-4 py-1.5 rounded-full shadow-sm">All levels</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-[#dfd7c8] flex items-center justify-center text-white">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2z" /></svg>
+                    </div>
+                  </div>
+                  {/* Title */}
+                  <h3 className="text-[36px] font-medium text-[#111] leading-[1.05] tracking-tight mb-3 font-sans">Mugs &<br />Drinkware</h3>
+                  <p className="text-[15px] text-[#444] leading-relaxed max-w-[90%] font-sans">Custom mugs that start every morning with your brand — from beginner to advanced sellers.</p>
+                </div>
+                {/* Photo inset */}
+                <div className="absolute bottom-0 left-0 right-0 h-[260px]">
+                  <div className="absolute inset-0 rounded-t-[1.5rem] overflow-hidden bg-[#d8d4f0] transition-transform duration-500 group-hover:scale-[1.03]" style={{ transformOrigin: 'bottom' }}>
+                    {/* Sliding Photos Container */}
+                    <div className="w-[200%] h-full flex animate-slide-photos">
+                      {/* Photo 1 */}
+                      <div className="w-1/2 h-full relative">
+                        <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=400&fit=crop" alt="White Mug" className="w-full h-full object-cover object-bottom" />
+                      </div>
+                      {/* Photo 2 */}
+                      <div className="w-1/2 h-full relative">
+                        <img src="https://images.unsplash.com/photo-1554620025-a1d2fb7bc547?q=80&w=400&fit=crop" alt="Latte Cup" className="w-full h-full object-cover object-center" />
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60 z-10 pointer-events-none"></div>
+                    {/* Read More button overlay */}
+                    <div className="absolute bottom-6 left-6 flex items-center gap-3 z-20">
+                      <span className="text-white text-[15px] font-medium tracking-wide drop-shadow-md">Design Now</span>
+                      <div className="w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-[#111] shadow-lg group-hover:bg-white transition-colors">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 4 — Blue */}
+              <div className="flex-shrink-0 w-[320px] h-[520px] bg-[#5bc2e7] rounded-[2rem] overflow-hidden flex flex-col relative group transition-transform hover:-translate-y-1">
+                <div className="p-7 relative z-10 flex-1 flex flex-col">
+                  {/* Tags */}
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="flex gap-2">
+                      <span className="bg-white/90 text-[#111] text-[14px] font-medium px-4 py-1.5 rounded-full shadow-sm">Stationery</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2z" /></svg>
+                    </div>
+                  </div>
+                  {/* Title */}
+                  <h3 className="text-[36px] font-medium text-[#111] leading-[1.05] tracking-tight mb-3 font-sans">Posters &<br />Art Prints</h3>
+                  <p className="text-[15px] text-[#111]/80 leading-relaxed max-w-[90%] font-sans">Museum-quality prints of your artwork shipped directly to your customers worldwide.</p>
+                </div>
+                {/* Photo inset */}
+                <div className="absolute bottom-0 left-0 right-0 h-[260px]">
+                  <div className="absolute inset-0 rounded-t-[1.5rem] overflow-hidden bg-[#e0f7fa] transition-transform duration-500 group-hover:scale-[1.03]" style={{ transformOrigin: 'bottom' }}>
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=400&fit=crop" alt="Posters" className="w-full h-full object-cover object-top" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                    {/* Read More button overlay */}
+                    <div className="absolute bottom-6 left-6 flex items-center gap-3">
+                      <span className="text-white text-[15px] font-medium tracking-wide drop-shadow-md">Design Now</span>
+                      <div className="w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-[#111] shadow-lg group-hover:bg-white transition-colors">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 5 — Lavender (Hats & Phones) */}
+              <div className="flex-shrink-0 w-[320px] h-[520px] bg-[#e6e0f8] rounded-[2rem] overflow-hidden flex flex-col relative group transition-transform hover:-translate-y-1">
+                <div className="p-7 relative z-10 flex-1 flex flex-col">
+                  {/* Tags */}
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="flex gap-2">
+                      <span className="bg-white text-[#111] text-[14px] font-medium px-4 py-1.5 rounded-full shadow-sm">Accessories</span>
+                      <span className="bg-white text-[#111] text-[14px] font-medium px-4 py-1.5 rounded-full shadow-sm">Tech</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center text-[#5c4b8b]">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2z" /></svg>
+                    </div>
+                  </div>
+                  {/* Title */}
+                  <h3 className="text-[36px] font-medium text-[#111] leading-[1.05] tracking-tight mb-3 font-sans">Hats &<br />Phone Cases</h3>
+                  <p className="text-[15px] text-[#444] leading-relaxed max-w-[90%] font-sans">Protect and style. Premium structured hats and durable, custom-printed safety covers.</p>
+                </div>
+                {/* Photo inset */}
+                <div className="absolute bottom-0 left-0 right-0 h-[260px]">
+                  <div className="absolute inset-0 rounded-t-[1.5rem] overflow-hidden bg-[#dcd6f0] transition-transform duration-500 group-hover:scale-[1.03]" style={{ transformOrigin: 'bottom' }}>
+                    {/* Sliding Photos Container */}
+                    <div className="w-[200%] h-full flex animate-slide-photos">
+                      {/* Photo 1: Hat */}
+                      <div className="w-1/2 h-full relative">
+                        <img src="https://images.unsplash.com/photo-1521369909029-2afed882ba54?q=80&w=400&fit=crop" alt="Premium structured hat" className="w-full h-full object-cover object-center" />
+                      </div>
+                      {/* Photo 2: Phone Case */}
+                      <div className="w-1/2 h-full relative">
+                        <img src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?q=80&w=400&fit=crop" alt="Custom phone safety cover" className="w-full h-full object-cover object-center" />
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60 z-10 pointer-events-none"></div>
+                    {/* Read More button overlay */}
+                    <div className="absolute bottom-6 left-6 flex items-center gap-3 z-20">
+                      <span className="text-white text-[15px] font-medium tracking-wide drop-shadow-md">Design Now</span>
+                      <div className="w-7 h-7 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-[#111] shadow-lg group-hover:bg-white transition-colors">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
+      <footer className="bg-[#2B3220] text-white py-10">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-2 mb-6 opacity-90">
-            <ShoppingBag className="h-6 w-6 text-primary" />
-            <span className="text-2xl font-bold tracking-tight">Stenvo</span>
-          </div>
-          <p className="text-gray-400 mb-8 max-w-md mx-auto">
-            The first print-on-demand marketplace connecting students with local verified print shops.
-          </p>
+          <img src="/logo.png" alt="Stenvo" className="h-10 w-auto mx-auto mb-4 brightness-[10]" />
+          <p className="text-gray-400 text-sm mb-4">Turn your custom ideas into premium merchandise with zero upfront costs.</p>
           <div className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Stenvo Business. All rights reserved. <br /> Currently serving Arba Minch University.
+            © {new Date().getFullYear()} Stenvo. All rights reserved.
           </div>
         </div>
       </footer>
