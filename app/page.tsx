@@ -5,57 +5,241 @@ import { ShoppingBag, PenTool, CheckCircle, Truck } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-[#fafafa]">
       {/* Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="bg-primary p-1.5 rounded-lg">
-              <ShoppingBag className="h-6 w-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900 tracking-tight">Printora</span>
+      <div className="w-full flex justify-center sticky top-4 lg:top-6 z-50 px-4 lg:px-6">
+        <header className="w-full max-w-7xl bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-200/50 rounded-[2rem] h-[76px] lg:h-[84px] flex items-center px-6 lg:px-10 relative">
+          
+          <div className="flex-1 flex items-center">
+            {/* Logo */}
+            <img 
+              src="/logo.png" 
+              alt="Stenvo Logo" 
+              className="h-[44px] md:h-[52px] w-auto cursor-pointer object-contain relative z-10 -ml-1 transition-transform hover:scale-105"
+            />
           </div>
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="#how-it-works" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">How it Works</Link>
-            <Link href="#products" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">Products</Link>
-            <Link href="#about" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">About Us</Link>
+            
+          {/* Centered Nav */}
+          <nav className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+            <Link href="#catalog" className="text-[15px] font-medium text-[#2d3227] hover:text-[#525f48] transition-colors">Catalog</Link>
+            <Link href="#pricing" className="text-[15px] font-medium text-[#2d3227] hover:text-[#525f48] transition-colors">Pricing</Link>
+            <Link href="#how-it-works" className="flex items-center gap-1.5 text-[15px] font-medium text-[#2d3227] hover:text-[#525f48] transition-colors">
+              How it works
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-[2px]"><path d="M6 9l6 6 6-6"/></svg>
+            </Link>
           </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" className="hidden md:inline-flex">Sign In</Button>
-            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6">Start Designing</Button>
+          
+          <div className="flex-1 flex items-center justify-end">
+            <button 
+              className="rounded-md px-6 h-10 text-[15px] font-bold transition-opacity hover:opacity-80"
+              style={{ backgroundColor: '#9DF542', color: '#1B2412' }}
+            >
+              My store
+            </button>
           </div>
-        </div>
-      </header>
+        </header>
+      </div>
 
       {/* Hero Section */}
       <main className="flex-1">
-        <section className="relative pt-24 pb-32 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0fdf4_1px,transparent_1px),linear-gradient(to_bottom,#f0fdf4_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] -z-10" />
+        <section className="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden">
+          <div className="container mx-auto px-4 lg:px-6 max-w-7xl">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+              
+              {/* Left Content */}
+              <div className="max-w-xl z-20 sm:ml-4 md:ml-8 lg:ml-12 xl:ml-16">
+                <h1 
+                  className="text-6xl lg:text-[76px] font-black uppercase tracking-normal leading-[1.15] mb-6"
+                  style={{ color: '#2B3220', fontFamily: 'Impact, "Arial Black", "Segoe UI Black", sans-serif' }}
+                >
+                  Create And Sell <br />
+                  Custom Products
+                </h1>
+                
+                <p className="text-[#495439] text-[16px] sm:text-[17px] font-normal leading-normal mb-8 font-sans">
+                  Turn your custom ideas into premium merchandise with zero upfront costs.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row flex-wrap sm:items-center gap-4 sm:gap-6 text-[#2B3220] text-lg font-semibold mb-12">
+                  <span className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    100% Free to use
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    1300+ products
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    Global delivery
+                  </span>
+                </div>
 
-          <div className="container mx-auto px-4 text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 text-primary border border-green-200 text-sm font-medium mb-8">
-              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-              Now live at Arba Minch University
-            </div>
+                <div className="flex flex-col items-start gap-4 mb-2">
+                  <style dangerouslySetInnerHTML={{__html: `
+                    @keyframes vibrate-btn {
+                      0% { transform: translateX(0) translateY(0); }
+                      20% { transform: translateX(-2px) translateY(1px) rotate(-1deg); }
+                      40% { transform: translateX(2px) translateY(-1px) rotate(1deg); }
+                      60% { transform: translateX(-2px) translateY(1px) rotate(-1deg); }
+                      80% { transform: translateX(2px) translateY(-1px) rotate(1deg); }
+                      100% { transform: translateX(0) translateY(0); }
+                    }
+                    .hover-vibrate-trigger:hover {
+                      animation: vibrate-btn 0.5s ease-in-out infinite !important;
+                    }
+                    @keyframes slide-two-photos {
+                      0%, 35% { transform: translateX(0); }
+                      45%, 85% { transform: translateX(-50%); }
+                      95%, 100% { transform: translateX(0); }
+                    }
+                    .animate-slide-photos {
+                      animation: slide-two-photos 4s infinite cubic-bezier(0.77, 0, 0.175, 1);
+                    }
+                    .animate-slide-photos-delayed {
+                      animation: slide-two-photos 4s infinite cubic-bezier(0.77, 0, 0.175, 1);
+                      animation-delay: -2s;
+                    }
+                    @keyframes sticker-fade-pop {
+                      0%, 35% { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+                      42%, 88% { opacity: 0; transform: translateY(15px) scale(0.85); pointer-events: none; }
+                      95%, 100% { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+                    }
+                    .animate-sticker-fade {
+                      animation: sticker-fade-pop 4s infinite cubic-bezier(0.77, 0, 0.175, 1);
+                    }
+                    .animate-sticker-fade-delayed {
+                      animation: sticker-fade-pop 4s infinite cubic-bezier(0.77, 0, 0.175, 1);
+                      animation-delay: -2s;
+                    }
+                  `}} />
+                  <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <button 
+                      className="hover-vibrate-trigger rounded-md px-10 h-14 text-[17px] font-extrabold font-sans w-full sm:w-auto"
+                      style={{ backgroundColor: '#9DF542', color: '#1B2412' }}
+                    >
+                      Get started for free
+                    </button>
+                    <button 
+                      className="rounded-md px-10 h-14 text-[17px] font-extrabold font-sans border-[3px] border-[#2B3220] text-[#2B3220] transition-colors hover:bg-[#2B3220] hover:text-[#9DF542] w-full sm:w-auto flex items-center justify-center"
+                    >
+                      How it works
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-6 max-w-4xl mx-auto leading-tight">
-              Create Custom Merch. <br className="hidden md:block" />
-              <span className="text-primary">Without the Hassle.</span>
-            </h1>
+              {/* Right Content - Images */}
+              <div className="relative h-[600px] w-full hidden lg:block z-10">
+                
+                {/* Photo 1 - Top Left */}
+                <div className="absolute top-8 left-4 w-[280px] h-[360px] z-10">
+                  <div className="w-full h-full bg-[#e0f2fe] rounded-[2.5rem] overflow-hidden border-[6px] border-white shadow-sm transition-transform hover:-translate-y-2 duration-300">
+                    <div className="w-[200%] h-full flex animate-slide-photos">
+                      <div className="w-1/2 h-full relative">
+                        <img 
+                          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&fit=crop" 
+                          alt="Student" 
+                          className="w-full h-[120%] object-cover object-top -mt-6"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="w-1/2 h-full relative">
+                        <img 
+                          src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&fit=crop" 
+                          alt="Creative Writer" 
+                          className="w-full h-[120%] object-cover object-top -mt-6"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  {/* "Thank You. Next." Floating Sticker */}
+                  <div className="absolute -top-2 -right-12 z-50 animate-sticker-fade pointer-events-none">
+                    <div className="transform rotate-6 hover-vibrate-trigger group cursor-pointer scale-[0.9] pointer-events-auto">
+                      <div className="bg-white rounded-[1.2rem] shadow-2xl px-6 py-4 flex items-center gap-4 border-2 border-gray-50 transition-transform group-hover:scale-105 group-hover:-rotate-3">
+                        {/* Beautiful Sparkles Icon rather than a messy OS Emoji */}
+                        <div className="flex flex-col items-center justify-center text-[#2B3220]">
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 1L14.59 9.41L23 12L14.59 14.59L12 23L9.41 14.59L1 12L9.41 9.41L12 1Z" />
+                          </svg>
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="-mr-8 -mt-2 text-[#9DF542]">
+                            <path d="M12 1L14.59 9.41L23 12L14.59 14.59L12 23L9.41 14.59L1 12L9.41 9.41L12 1Z" />
+                          </svg>
+                        </div>
+                        <div className="text-[28px] font-bold text-[#111827] flex flex-col tracking-tight italic" style={{ fontFamily: 'Georgia, "Times New Roman", serif', lineHeight: '0.85' }}>
+                          <span>Create</span>
+                          <span className="ml-[12px]">Your</span>
+                          <span className="ml-[4px]">Design.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Design your custom t-shirts, hoodies, and mugs. Approve physical mockups before full production. Delivered right to your dorm.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/editor" passHref legacyBehavior>
-                <Button size="lg" className="h-14 px-8 text-lg rounded-full shadow-lg shadow-green-500/20 w-full sm:w-auto">
-                  <PenTool className="mr-2 h-5 w-5" /> Start Designing Now
-                </Button>
-              </Link>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto">
-                View product catalog
-              </Button>
+                {/* Photo 2 - Bottom Right */}
+                <div className="absolute top-[160px] right-2 w-[300px] h-[380px] z-20">
+                  <div className="w-full h-full bg-[#ede9fe] rounded-[2.5rem] overflow-hidden border-[6px] border-white shadow-sm transition-transform hover:-translate-y-2 duration-300">
+                    <div className="w-[200%] h-full flex flex-row-reverse animate-slide-photos-delayed">
+                      <div className="w-1/2 h-full relative">
+                        <img 
+                          src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&fit=crop" 
+                          alt="Student" 
+                          className="w-full h-full object-cover object-top pt-4"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="w-1/2 h-full relative">
+                        <img 
+                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&fit=crop" 
+                          alt="Creative Designer" 
+                          className="w-full h-full object-cover object-top pt-4"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  {/* "Item Sold" Floating Sticker */}
+                  <div className="absolute -top-4 -right-10 z-50 animate-sticker-fade-delayed pointer-events-none">
+                    <div className="transform -rotate-3 hover-vibrate-trigger group cursor-pointer scale-[0.9] pointer-events-auto">
+                      <div className="relative">
+                        {/* Dark Rectangle */}
+                        <div className="bg-[#151a10] rounded-lg px-5 py-[12px] shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-transform group-hover:scale-105 border-[1px] border-[#313b24]">
+                          <span 
+                            className="text-[#f8fafc] text-[25px] uppercase tracking-wider leading-none block"
+                            style={{ 
+                              fontFamily: 'Impact, "Arial Black", "Segoe UI Black", sans-serif',
+                              textShadow: '-2px 0px 0px #06b6d4, 2px 0px 0px #f43f5e'
+                            }}
+                          >
+                            BEST SELLER
+                          </span>
+                        </div>
+                        {/* Blue Oval */}
+                        <div className="absolute -top-6 -right-8 bg-[#2563EB] w-[85px] h-[55px] rounded-[50%] flex items-center justify-center transform rotate-[15deg] shadow-[inset_0_-4px_10px_rgba(0,0,0,0.1),_0_10px_15px_-3px_rgba(0,0,0,0.2)] transition-transform group-hover:rotate-[25deg] group-hover:scale-110">
+                          <div 
+                            className="text-white flex items-end justify-center leading-none" 
+                            style={{ fontFamily: 'Impact, "Arial Black", "Segoe UI Black", sans-serif', textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+                          >
+                            <span className="text-[20px] transform -rotate-[15deg] translate-y-[2px] translate-x-[2px] drop-shadow-sm">$</span>
+                            <span className="text-[26px] transform -rotate-3 -ml-[2px] mb-[1px] drop-shadow-sm">$</span>
+                            <span className="text-[34px] transform rotate-[12deg] -ml-[2px] mb-[1px] drop-shadow-sm">$</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute top-[340px] left-[10px] w-6 h-6 text-[#a0d6a5]">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
+                  </svg>
+                </div>
+                
+                <div className="absolute top-[50px] right-[40px] w-[14px] h-[14px] rounded-full bg-[#c2b6f1]"></div>
+              </div>
             </div>
           </div>
         </section>
@@ -64,7 +248,7 @@ export default function Home() {
         <section id="how-it-works" className="py-24 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">How Printora Works</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-4">How Stenvo Works</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">A seamless experience from design to delivery, built to guarantee you get exactly what you want.</p>
             </div>
 
@@ -90,7 +274,7 @@ export default function Home() {
         {/* Trust Section */}
         <section className="py-24 bg-white border-t border-gray-100">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-12">The Printora Promise</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-12">The Stenvo Promise</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="border-none shadow-md bg-[#f0fdf4]">
                 <CardContent className="pt-8 pb-8 flex flex-col items-center text-center">
@@ -123,13 +307,13 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-6 opacity-90">
             <ShoppingBag className="h-6 w-6 text-primary" />
-            <span className="text-2xl font-bold tracking-tight">Printora</span>
+            <span className="text-2xl font-bold tracking-tight">Stenvo</span>
           </div>
           <p className="text-gray-400 mb-8 max-w-md mx-auto">
             The first print-on-demand marketplace connecting students with local verified print shops.
           </p>
           <div className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Printora Business. All rights reserved. <br /> Currently serving Arba Minch University.
+            © {new Date().getFullYear()} Stenvo Business. All rights reserved. <br /> Currently serving Arba Minch University.
           </div>
         </div>
       </footer>
