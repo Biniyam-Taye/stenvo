@@ -88,6 +88,26 @@ export default function Home() {
                     .hover-vibrate-trigger:hover {
                       animation: vibrate-btn 0.5s ease-in-out infinite !important;
                     }
+                    @keyframes auto-wiggle {
+                      0%, 100% { transform: rotate(6deg) translateX(0) translateY(0); }
+                      20% { transform: rotate(7.5deg) translateX(-1.5px) translateY(0.5px); }
+                      40% { transform: rotate(4.5deg) translateX(1.5px) translateY(-0.5px); }
+                      60% { transform: rotate(7deg) translateX(-1px) translateY(0.5px); }
+                      80% { transform: rotate(5deg) translateX(1px) translateY(-0.5px); }
+                    }
+                    .auto-wiggle {
+                      animation: auto-wiggle 0.6s ease-in-out infinite;
+                    }
+                    @keyframes auto-wiggle-neg {
+                      0%, 100% { transform: rotate(-3deg) translateX(0) translateY(0); }
+                      20% { transform: rotate(-4.5deg) translateX(1.5px) translateY(0.5px); }
+                      40% { transform: rotate(-1.5deg) translateX(-1.5px) translateY(-0.5px); }
+                      60% { transform: rotate(-4deg) translateX(1px) translateY(0.5px); }
+                      80% { transform: rotate(-2deg) translateX(-1px) translateY(-0.5px); }
+                    }
+                    .auto-wiggle-neg {
+                      animation: auto-wiggle-neg 0.6s ease-in-out infinite;
+                    }
                     @keyframes slide-two-photos {
                       0%, 35% { transform: translateX(0); }
                       45%, 85% { transform: translateX(-50%); }
@@ -156,7 +176,7 @@ export default function Home() {
                   </div>
                   {/* "Thank You. Next." Floating Sticker */}
                   <div className="absolute -top-2 -right-12 z-50 animate-sticker-fade pointer-events-none">
-                    <div className="transform rotate-6 hover-vibrate-trigger group cursor-pointer scale-[0.9] pointer-events-auto">
+                    <div className="auto-wiggle group cursor-pointer scale-[0.9] pointer-events-auto">
                       <div className="bg-white rounded-[1.2rem] shadow-2xl px-6 py-4 flex items-center gap-4 border-2 border-gray-50 transition-transform group-hover:scale-105 group-hover:-rotate-3">
                         {/* Beautiful Sparkles Icon rather than a messy OS Emoji */}
                         <div className="flex flex-col items-center justify-center text-[#2B3220]">
@@ -201,7 +221,7 @@ export default function Home() {
                   </div>
                   {/* "Item Sold" Floating Sticker */}
                   <div className="absolute -top-4 -right-10 z-50 animate-sticker-fade-delayed pointer-events-none">
-                    <div className="transform -rotate-3 hover-vibrate-trigger group cursor-pointer scale-[0.9] pointer-events-auto">
+                    <div className="auto-wiggle-neg group cursor-pointer scale-[0.9] pointer-events-auto">
                       <div className="relative">
                         {/* Dark Rectangle */}
                         <div className="bg-[#151a10] rounded-lg px-5 py-[12px] shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-transform group-hover:scale-105 border-[1px] border-[#313b24]">
