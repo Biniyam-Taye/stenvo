@@ -7,30 +7,30 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#fafafa]">
       {/* Navigation */}
-      <div className="w-full flex justify-center sticky top-4 lg:top-6 z-50 px-4 lg:px-6">
+      <div className="w-full flex justify-center sticky top-1 lg:top-2 z-50 px-4 lg:px-6">
         <header className="w-full max-w-7xl bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-200/50 rounded-[2rem] h-[76px] lg:h-[84px] flex items-center px-6 lg:px-10 relative">
-          
+
           <div className="flex-1 flex items-center">
             {/* Logo */}
-            <img 
-              src="/logo.png" 
-              alt="Stenvo Logo" 
-              className="h-[44px] md:h-[52px] w-auto cursor-pointer object-contain relative z-10 -ml-1 transition-transform hover:scale-105"
+            <img
+              src="/logo.png"
+              alt="Stenvo Logo"
+              className="h-[56px] md:h-[68px] w-auto cursor-pointer object-contain relative z-10 -ml-1 transition-transform hover:scale-105"
             />
           </div>
-            
+
           {/* Centered Nav */}
           <nav className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
-            <Link href="#catalog" className="text-[15px] font-medium text-[#2d3227] hover:text-[#525f48] transition-colors">Catalog</Link>
-            <Link href="#pricing" className="text-[15px] font-medium text-[#2d3227] hover:text-[#525f48] transition-colors">Pricing</Link>
-            <Link href="#how-it-works" className="flex items-center gap-1.5 text-[15px] font-medium text-[#2d3227] hover:text-[#525f48] transition-colors">
+            <Link href="#catalog" className="text-[17px] font-normal text-[#2d3227] hover:text-[#525f48] transition-colors">Catalog</Link>
+            <Link href="#pricing" className="text-[17px] font-normal text-[#2d3227] hover:text-[#525f48] transition-colors">Pricing</Link>
+            <Link href="#how-it-works" className="flex items-center gap-1.5 text-[17px] font-normal text-[#2d3227] hover:text-[#525f48] transition-colors">
               How it works
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-[2px]"><path d="M6 9l6 6 6-6"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-[2px]"><path d="M6 9l6 6 6-6" /></svg>
             </Link>
           </nav>
-          
+
           <div className="flex-1 flex items-center justify-end">
-            <button 
+            <button
               className="rounded-md px-6 h-10 text-[15px] font-bold transition-opacity hover:opacity-80"
               style={{ backgroundColor: '#9DF542', color: '#1B2412' }}
             >
@@ -45,21 +45,21 @@ export default function Home() {
         <section className="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden">
           <div className="container mx-auto px-4 lg:px-6 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-              
+
               {/* Left Content */}
               <div className="max-w-xl z-20 sm:ml-4 md:ml-8 lg:ml-12 xl:ml-16">
-                <h1 
+                <h1
                   className="text-6xl lg:text-[76px] font-black uppercase tracking-normal leading-[1.15] mb-6"
                   style={{ color: '#2B3220', fontFamily: 'Impact, "Arial Black", "Segoe UI Black", sans-serif' }}
                 >
                   Create And Sell <br />
                   Custom Products
                 </h1>
-                
+
                 <p className="text-[#495439] text-[16px] sm:text-[17px] font-normal leading-normal mb-8 font-sans">
                   Turn your custom ideas into premium merchandise with zero upfront costs.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row flex-wrap sm:items-center gap-4 sm:gap-6 text-[#2B3220] text-lg font-semibold mb-12">
                   <span className="flex items-center gap-2">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -76,7 +76,8 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-start gap-4 mb-2">
-                  <style dangerouslySetInnerHTML={{__html: `
+                  <style dangerouslySetInnerHTML={{
+                    __html: `
                     @keyframes vibrate-btn {
                       0% { transform: translateX(0) translateY(0); }
                       20% { transform: translateX(-2px) translateY(1px) rotate(-1deg); }
@@ -134,13 +135,13 @@ export default function Home() {
                     }
                   `}} />
                   <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <button 
+                    <button
                       className="hover-vibrate-trigger rounded-md px-10 h-14 text-[17px] font-extrabold font-sans w-full sm:w-auto"
                       style={{ backgroundColor: '#9DF542', color: '#1B2412' }}
                     >
                       Get started for free
                     </button>
-                    <button 
+                    <button
                       className="rounded-md px-10 h-14 text-[17px] font-extrabold font-sans border-[3px] border-[#2B3220] text-[#2B3220] transition-colors hover:bg-[#2B3220] hover:text-[#9DF542] w-full sm:w-auto flex items-center justify-center"
                     >
                       How it works
@@ -151,23 +152,23 @@ export default function Home() {
 
               {/* Right Content - Images */}
               <div className="relative h-[600px] w-full hidden lg:block z-10">
-                
+
                 {/* Photo 1 - Top Left */}
                 <div className="absolute top-8 left-4 w-[280px] h-[360px] z-10">
                   <div className="w-full h-full bg-[#e0f2fe] rounded-[2.5rem] overflow-hidden border-[6px] border-white shadow-sm transition-transform hover:-translate-y-2 duration-300">
                     <div className="w-[200%] h-full flex animate-slide-photos">
                       <div className="w-1/2 h-full relative">
-                        <img 
-                          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&fit=crop" 
-                          alt="Student" 
+                        <img
+                          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&fit=crop"
+                          alt="Student"
                           className="w-full h-[120%] object-cover object-top -mt-6"
                           loading="lazy"
                         />
                       </div>
                       <div className="w-1/2 h-full relative">
-                        <img 
-                          src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&fit=crop" 
-                          alt="Creative Writer" 
+                        <img
+                          src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&fit=crop"
+                          alt="Creative Writer"
                           className="w-full h-[120%] object-cover object-top -mt-6"
                           loading="lazy"
                         />
@@ -202,17 +203,17 @@ export default function Home() {
                   <div className="w-full h-full bg-[#ede9fe] rounded-[2.5rem] overflow-hidden border-[6px] border-white shadow-sm transition-transform hover:-translate-y-2 duration-300">
                     <div className="w-[200%] h-full flex flex-row-reverse animate-slide-photos-delayed">
                       <div className="w-1/2 h-full relative">
-                        <img 
-                          src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&fit=crop" 
-                          alt="Student" 
+                        <img
+                          src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&fit=crop"
+                          alt="Student"
                           className="w-full h-full object-cover object-top pt-4"
                           loading="lazy"
                         />
                       </div>
                       <div className="w-1/2 h-full relative">
-                        <img 
-                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&fit=crop" 
-                          alt="Creative Designer" 
+                        <img
+                          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&fit=crop"
+                          alt="Creative Designer"
                           className="w-full h-full object-cover object-top pt-4"
                           loading="lazy"
                         />
@@ -225,9 +226,9 @@ export default function Home() {
                       <div className="relative">
                         {/* Dark Rectangle */}
                         <div className="bg-[#151a10] rounded-lg px-5 py-[12px] shadow-[0_8px_30px_rgb(0,0,0,0.3)] transition-transform group-hover:scale-105 border-[1px] border-[#313b24]">
-                          <span 
+                          <span
                             className="text-[#f8fafc] text-[25px] uppercase tracking-wider leading-none block"
-                            style={{ 
+                            style={{
                               fontFamily: 'Impact, "Arial Black", "Segoe UI Black", sans-serif',
                               textShadow: '-2px 0px 0px #06b6d4, 2px 0px 0px #f43f5e'
                             }}
@@ -237,8 +238,8 @@ export default function Home() {
                         </div>
                         {/* Blue Oval */}
                         <div className="absolute -top-6 -right-8 bg-[#2563EB] w-[85px] h-[55px] rounded-[50%] flex items-center justify-center transform rotate-[15deg] shadow-[inset_0_-4px_10px_rgba(0,0,0,0.1),_0_10px_15px_-3px_rgba(0,0,0,0.2)] transition-transform group-hover:rotate-[25deg] group-hover:scale-110">
-                          <div 
-                            className="text-white flex items-end justify-center leading-none" 
+                          <div
+                            className="text-white flex items-end justify-center leading-none"
                             style={{ fontFamily: 'Impact, "Arial Black", "Segoe UI Black", sans-serif', textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
                           >
                             <span className="text-[20px] transform -rotate-[15deg] translate-y-[2px] translate-x-[2px] drop-shadow-sm">$</span>
@@ -250,14 +251,14 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Decorative elements */}
                 <div className="absolute top-[340px] left-[10px] w-6 h-6 text-[#a0d6a5]">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
                   </svg>
                 </div>
-                
+
                 <div className="absolute top-[50px] right-[40px] w-[14px] h-[14px] rounded-full bg-[#c2b6f1]"></div>
               </div>
             </div>
