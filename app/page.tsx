@@ -1,11 +1,38 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShoppingBag, PenTool, CheckCircle, Truck } from "lucide-react";
 
 export default function Home() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      const progress = (scrollLeft / (scrollWidth - clientWidth)) * 100;
+      setScrollProgress(progress || 0);
+    }
+  };
+
+  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newProgress = Number(e.target.value);
+    setScrollProgress(newProgress);
+    if (scrollContainerRef.current) {
+      const { scrollWidth, clientWidth } = scrollContainerRef.current;
+      scrollContainerRef.current.scrollLeft = (newProgress / 100) * (scrollWidth - clientWidth);
+    }
+  };
+
+  useEffect(() => {
+    handleScroll();
+    window.addEventListener("resize", handleScroll);
+    return () => window.removeEventListener("resize", handleScroll);
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-[#fafafa]">
       {/* Navigation */}
@@ -268,7 +295,7 @@ export default function Home() {
         </section>
 
         {/* Product Categories Section - Designed to match exactly */}
-        <section className="bg-[#f4f3ec] pt-12 pb-20 px-6 lg:px-16 overflow-hidden min-h-[90vh] flex flex-col justify-center">
+        <section className="bg-[#f4f3ec] pt-12 pb-10 px-6 lg:px-16 overflow-hidden flex flex-col justify-center">
           <style dangerouslySetInnerHTML={{
             __html: `
             .cards-scroll::-webkit-scrollbar { display: none; }
@@ -284,25 +311,15 @@ export default function Home() {
                   Comprehensive Custom Merch for Everyone
                 </h2>
               </div>
-              {/* Arrows */}
-              <div className="flex gap-3 mb-2 md:mb-4">
-                <button
-                  onClick={() => (document.getElementById('cards-track') as HTMLElement).scrollBy({ left: -340, behavior: 'smooth' })}
-                  className="w-12 h-12 rounded-full bg-[#111] text-white flex items-center justify-center hover:bg-gray-800 transition-colors shadow-lg"
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
-                </button>
-                <button
-                  onClick={() => (document.getElementById('cards-track') as HTMLElement).scrollBy({ left: 340, behavior: 'smooth' })}
-                  className="w-12 h-12 rounded-full bg-[#111] text-white flex items-center justify-center hover:bg-gray-800 transition-colors shadow-lg"
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
-                </button>
-              </div>
             </div>
 
             {/* Scrollable cards */}
-            <div id="cards-track" className="cards-scroll flex gap-6 overflow-x-auto pb-8 -mx-6 px-6 lg:-mx-16 lg:px-16">
+            <div 
+              id="cards-track" 
+              ref={scrollContainerRef}
+              onScroll={handleScroll}
+              className="cards-scroll flex gap-6 overflow-x-auto pb-3 -mx-6 px-6 lg:-mx-16 lg:px-16"
+            >
 
               {/* Card 1 — Green */}
               <div className="flex-shrink-0 w-[320px] h-[520px] bg-[#ccff00] rounded-[2rem] overflow-hidden flex flex-col relative group transition-transform hover:-translate-y-1">
@@ -524,11 +541,79 @@ export default function Home() {
               </div>
 
             </div>
+
+            {/* Scroll Progress & Navigation Graphic */}
+            <div className="flex flex-col sm:flex-row items-center justify-between mt-4 mb-4 px-6 lg:px-4 w-full relative z-20 gap-8">
+              {/* Graphic Tracker bar - Interactive */ }
+              <div className="hidden md:flex items-center gap-4 flex-1 max-w-sm mr-8 relative group">
+                <style dangerouslySetInnerHTML={{__html: `
+                  .custom-scrollbar::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 32px;
+                    height: 16px;
+                    border-radius: 8px;
+                    background: #ccff00;
+                    border: 3px solid #111;
+                    cursor: pointer;
+                    transition: transform 0.15s ease-out;
+                  }
+                  .custom-scrollbar::-webkit-slider-thumb:hover {
+                    transform: scale(1.15);
+                  }
+                  .custom-scrollbar::-moz-range-thumb {
+                    width: 32px;
+                    height: 16px;
+                    border-radius: 8px;
+                    background: #ccff00;
+                    border: 3px solid #111;
+                    cursor: pointer;
+                    transition: transform 0.15s ease-out;
+                  }
+                  .custom-scrollbar::-moz-range-thumb:hover {
+                    transform: scale(1.15);
+                  }
+                `}} />
+                <input 
+                  type="range" 
+                  min="0" 
+                  max="100" 
+                  value={scrollProgress || 0} 
+                  onChange={handleSliderChange}
+                  className="custom-scrollbar w-full h-1.5 rounded-full appearance-none cursor-pointer focus:outline-none"
+                  style={{
+                    background: `linear-gradient(to right, #111 0%, #111 ${scrollProgress}%, #e5e7eb ${scrollProgress}%, #e5e7eb 100%)`
+                  }}
+                  aria-label="Scroll horizontal cards"
+                />
+              </div>
+              
+              {/* Interactive Slide Arrows */}
+              <div className="flex gap-3 ml-auto">
+                <button
+                  onClick={() => {
+                    if (scrollContainerRef.current) scrollContainerRef.current.scrollBy({ left: -340, behavior: 'smooth' });
+                  }}
+                  className="w-12 h-12 rounded-full border border-gray-200 bg-white text-[#111] flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+                </button>
+                <button
+                  onClick={() => {
+                    if (scrollContainerRef.current) scrollContainerRef.current.scrollBy({ left: 340, behavior: 'smooth' });
+                  }}
+                  className="w-12 h-12 rounded-full bg-[#111] text-white flex items-center justify-center hover:bg-gray-800 transition-colors shadow-md"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                </button>
+              </div>
+            </div>
+
           </div>
         </section>
 
         {/* Services Section */}
-        <section className="bg-[#f0ebe1] py-24 px-6 lg:px-10 flex flex-col justify-center items-center">
+        <section className="bg-[#f0ebe1] pt-12 pb-24 px-6 lg:px-10 flex flex-col justify-center items-center">
           <div className="max-w-[1240px] w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Header Block */}
@@ -626,6 +711,127 @@ export default function Home() {
               </div>
             </div>
 
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="relative w-full overflow-hidden bg-white pt-4 pb-32 border-t border-gray-100/50">
+          {/* Subtle Vertical Lines Container */}
+          <div className="absolute inset-0 flex justify-between px-4 sm:px-10 md:px-20 lg:px-32 xl:px-48 pointer-events-none opacity-[0.25] z-0">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="w-[1px] h-[85%] bg-gradient-to-b from-gray-300 via-gray-200 to-transparent relative">
+                {/* Randomly place small orange dashes on some lines */}
+                {i % 2 !== 0 && (
+                  <div className="absolute top-[60%] -left-[1px] w-[3px] h-6 bg-orange-400 rounded-full"></div>
+                )}
+                {i === 2 && (
+                  <div className="absolute top-[80%] -left-[1px] w-[3px] h-8 bg-orange-400 rounded-full"></div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="relative max-w-[1600px] mx-auto min-h-[500px] lg:min-h-[700px] flex flex-col items-center justify-end px-4 z-10">
+            
+            {/* Desktop Scattered Grid of Images */}
+            <div className="absolute top-0 left-0 w-full h-[500px] hidden lg:block pointer-events-none">
+              
+
+
+              {/* Box/Image 1 */}
+              <div className="absolute top-[8%] left-[2%] w-[120px] h-[140px] rounded-[1rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&fit=crop" className="w-full h-full object-cover" alt="User" />
+              </div>
+
+              {/* Box/Image 2 */}
+              <div className="absolute top-[35%] left-[6%] w-[100px] h-[120px] rounded-[1rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&fit=crop" className="w-full h-full object-cover" alt="User" />
+              </div>
+
+              {/* Box/Image 3 (higher up) */}
+              <div className="absolute top-[0%] left-[14%] w-[140px] h-[160px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
+              </div>
+
+              {/* Box/Image 4 */}
+              <div className="absolute top-[18%] left-[25%] w-[130px] h-[150px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
+              </div>
+
+              {/* Box/Image 5 (top middle) */}
+              <div className="absolute top-[-3%] left-[36%] w-[120px] h-[140px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&fit=crop" className="w-full h-full object-cover" alt="User" />
+              </div>
+
+              {/* Box/Image 6 */}
+              <div className="absolute top-[14%] left-[46%] w-[140px] h-[160px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
+              </div>
+
+              {/* Box/Image 7 */}
+              <div className="absolute top-[0%] left-[58%] w-[110px] h-[130px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
+              </div>
+
+              {/* Box/Image 8 (Lower Right) */}
+              <div className="absolute top-[20%] left-[67%] w-[130px] h-[150px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
+              </div>
+
+              {/* Box/Image 9 - The TILTED 3D one */}
+              <div 
+                className="absolute top-[30%] left-[78%] w-[150px] h-[170px] rounded-[1rem] overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] border-[8px] border-white pointer-events-auto transition-all duration-300 hover:rotate-0"
+                style={{ transform: 'perspective(1000px) rotateY(-12deg) rotateX(8deg) rotateZ(-2deg)' }}
+              >
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
+                {/* 3D reflection overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none mix-blend-overlay"></div>
+              </div>
+
+              {/* Box/Image 10 - Upper Right */}
+              <div className="absolute top-[-5%] left-[78%] w-[130px] h-[150px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
+              </div>
+
+              {/* Box/Image 11 - Right Edge */}
+              <div className="absolute top-[12%] left-[89%] w-[110px] h-[130px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1eb74e?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
+              </div>
+
+              {/* Box/Image 12 - Far Right Edge (Low) */}
+              <div className="absolute top-[37%] left-[91%] w-[120px] h-[140px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
+              </div>
+            </div>
+
+            {/* Mobile simplified layout */}
+            <div className="grid grid-cols-3 gap-2 mb-12 lg:hidden w-full max-w-sm mx-auto">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=150&fit=crop" className="w-full h-24 object-cover rounded-xl" alt="User" />
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&fit=crop" className="w-full h-24 object-cover rounded-xl" alt="User" />
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&fit=crop" className="w-full h-24 object-cover rounded-xl" alt="User" />
+            </div>
+
+            {/* Content Container */}
+            <div className="flex flex-col items-center text-center mt-20 lg:mt-56 z-20 w-full relative">
+              <span className="bg-[#f8f9fa] border border-gray-200/60 shadow-sm text-[#111] text-[15px] font-bold px-5 py-2 rounded-full mb-6">
+                Testimonials
+              </span>
+              
+              <h2 className="text-[42px] md:text-[64px] lg:text-[76px] font-bold text-[#111] leading-[1.05] tracking-[-0.03em] mb-6 max-w-4xl" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                Trusted by leaders <br className="hidden md:block"/>
+                <span className="text-[#a1a1aa] block mt-1">from various industries</span>
+              </h2>
+              
+              <p className="text-[#52525b] text-[18px] md:text-[24px] font-medium leading-[1.6] max-w-[700px] mb-12 tracking-[-0.01em]">
+                Learn why professionals trust our solutions to complete their customer journeys.
+              </p>
+              
+              <button className="bg-[#111] text-white px-10 py-4 rounded-full font-semibold text-[17px] hover:bg-[#27272a] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg mb-8">
+                Read Success Stories
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-[1px]"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </button>
+            </div>
+            
           </div>
         </section>
       </main>
