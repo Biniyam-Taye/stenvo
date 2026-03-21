@@ -314,8 +314,8 @@ export default function Home() {
             </div>
 
             {/* Scrollable cards */}
-            <div 
-              id="cards-track" 
+            <div
+              id="cards-track"
               ref={scrollContainerRef}
               onScroll={handleScroll}
               className="cards-scroll flex gap-6 overflow-x-auto pb-3 -mx-6 px-6 lg:-mx-16 lg:px-16"
@@ -544,9 +544,10 @@ export default function Home() {
 
             {/* Scroll Progress & Navigation Graphic */}
             <div className="flex flex-col sm:flex-row items-center justify-between mt-4 mb-4 px-6 lg:px-4 w-full relative z-20 gap-8">
-              {/* Graphic Tracker bar - Interactive */ }
+              {/* Graphic Tracker bar - Interactive */}
               <div className="hidden md:flex items-center gap-4 flex-1 max-w-sm mr-8 relative group">
-                <style dangerouslySetInnerHTML={{__html: `
+                <style dangerouslySetInnerHTML={{
+                  __html: `
                   .custom-scrollbar::-webkit-slider-thumb {
                     -webkit-appearance: none;
                     appearance: none;
@@ -574,11 +575,11 @@ export default function Home() {
                     transform: scale(1.15);
                   }
                 `}} />
-                <input 
-                  type="range" 
-                  min="0" 
-                  max="100" 
-                  value={scrollProgress || 0} 
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={scrollProgress || 0}
                   onChange={handleSliderChange}
                   className="custom-scrollbar w-full h-1.5 rounded-full appearance-none cursor-pointer focus:outline-none"
                   style={{
@@ -587,7 +588,7 @@ export default function Home() {
                   aria-label="Scroll horizontal cards"
                 />
               </div>
-              
+
               {/* Interactive Slide Arrows */}
               <div className="flex gap-3 ml-auto">
                 <button
@@ -615,7 +616,7 @@ export default function Home() {
         {/* Services Section */}
         <section className="bg-[#f0ebe1] pt-12 pb-24 px-6 lg:px-10 flex flex-col justify-center items-center">
           <div className="max-w-[1240px] w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
+
             {/* Header Block */}
             <div className="flex flex-col justify-center pr-2 md:pr-4 py-8">
               <h2 className="text-[32px] md:text-[38px] font-extrabold text-[#202b2a] leading-tight mb-5 tracking-tight font-sans">
@@ -636,7 +637,7 @@ export default function Home() {
             <div className="bg-[#ccff00] text-[#111] p-7 md:p-8 rounded-[1.2rem] flex flex-col justify-between shadow-sm z-10 w-full hover-vibrate-trigger transition-transform">
               <div>
                 <div className="flex items-center gap-3 mb-5 text-[#111]">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>
                   <span className="font-bold text-[#111] text-[18px] md:text-[19px] tracking-tight">1. Choose Material</span>
                 </div>
                 <p className="text-[#222] text-[14px] leading-[1.6] mb-8 font-medium pr-2">
@@ -652,7 +653,7 @@ export default function Home() {
             <div className="bg-[#e6e0f8] p-7 md:p-8 rounded-[1.2rem] flex flex-col justify-between hover-vibrate-trigger transition-transform shadow-sm w-full">
               <div>
                 <div className="flex items-center gap-3 mb-5 text-[#111]">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
                   <span className="font-bold text-[#111] text-[18px] md:text-[19px] tracking-tight">2. Select Print House</span>
                 </div>
                 <p className="text-[#444] text-[14px] leading-[1.6] mb-8 font-medium pr-2">
@@ -668,7 +669,7 @@ export default function Home() {
             <div className="bg-[#5bc2e7] p-7 md:p-8 rounded-[1.2rem] flex flex-col justify-between hover-vibrate-trigger transition-transform shadow-sm w-full">
               <div>
                 <div className="flex items-center gap-3 mb-5 text-[#111]">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg>
                   <span className="font-bold text-[#111] text-[18px] md:text-[19px] tracking-tight">3. Design Material</span>
                 </div>
                 <p className="text-[#111]/80 text-[14px] leading-[1.6] mb-8 font-medium pr-2">
@@ -684,7 +685,7 @@ export default function Home() {
             <div className="bg-[#f0eae1] p-7 md:p-8 rounded-[1.2rem] flex flex-col justify-between hover-vibrate-trigger transition-transform shadow-sm w-full">
               <div>
                 <div className="flex items-center gap-3 mb-5 text-[#111]">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2" /><line x1="1" y1="10" x2="23" y2="10" /></svg>
                   <span className="font-bold text-[#111] text-[18px] md:text-[19px] tracking-tight">4. Payment & Order</span>
                 </div>
                 <p className="text-[#444] text-[14px] leading-[1.6] mb-8 font-medium pr-2">
@@ -700,7 +701,7 @@ export default function Home() {
             <div className="bg-[#f6cdcd] p-7 md:p-8 rounded-[1.2rem] flex flex-col justify-between hover-vibrate-trigger transition-transform shadow-sm w-full">
               <div>
                 <div className="flex items-center gap-3 mb-5 text-[#111]">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
                   <span className="font-bold text-[#111] text-[18px] md:text-[19px] tracking-tight">5. Process Complete</span>
                 </div>
                 <p className="text-[#333] text-[14px] leading-[1.6] mb-8 font-medium pr-2">
@@ -717,27 +718,27 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className="bg-white w-full overflow-hidden">
-          <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center min-h-[580px]">
+          <div className="flex flex-col lg:flex-row items-stretch w-full" style={{ minHeight: '580px' }}>
 
             {/* Left: Illustration Panel */}
-            <div className="relative flex-1 flex items-end justify-center min-h-[420px] lg:min-h-[580px] w-full lg:w-auto bg-[#fde8d8] overflow-hidden">
+            <div className="relative w-full lg:w-1/2 flex items-end justify-center min-h-[420px] lg:min-h-[580px] bg-[#fde8d8] overflow-hidden flex-shrink-0">
               {/* Big decorative circle */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[420px] h-[420px] rounded-full bg-[#f9d0b8]/60 pointer-events-none" />
 
-              {/* Team illustration image — colorful, vibrant */}
+              {/* Team illustration image */}
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&fit=crop&crop=bottom"
+                src="/u1.jpg"
                 alt="Team collaborating"
-                className="relative z-10 w-full max-w-[520px] h-[400px] lg:h-[520px] object-cover object-top"
-                style={{ maskImage: 'linear-gradient(to top, transparent 0%, black 18%)', WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 18%)' }}
+                className="relative z-10 w-full h-full object-cover object-center absolute inset-0"
+                style={{ maskImage: 'linear-gradient(to top, transparent 2%, black 20%)', WebkitMaskImage: 'linear-gradient(to top, transparent 2%, black 20%)' }}
               />
 
               {/* Bottom fade */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#fde8d8] to-transparent z-20 pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#fde8d8] to-transparent z-20 pointer-events-none" />
             </div>
 
             {/* Right: Text Content */}
-            <div className="flex-1 flex flex-col justify-center px-10 md:px-16 lg:px-20 py-16 lg:py-0 max-w-[640px]">
+            <div className="w-full lg:w-1/2 flex flex-col justify-center px-10 md:px-16 lg:px-20 py-16 lg:py-0 flex-shrink-0">
 
               {/* Pill badge */}
               <div className="inline-flex mb-6">
@@ -761,11 +762,11 @@ export default function Home() {
 
               {/* Buttons */}
               <div className="flex flex-wrap gap-4 items-center">
-                <button className="hover-vibrate-trigger bg-[#111] text-white px-8 py-4 rounded-full font-bold text-[16px] flex items-center gap-2 hover:bg-[#333] transition-all shadow-lg">
+                <button className="hover-vibrate-trigger bg-[#9DF542] text-[#111] px-8 py-4 rounded-full font-bold text-[16px] flex items-center gap-2 hover:bg-[#88DC2E] transition-all shadow-lg">
                   Get Started for Free
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </button>
-                <button className="px-8 py-4 rounded-full font-bold text-[16px] border-2 border-gray-200 text-[#111] hover:border-gray-400 hover:bg-gray-50 transition-all">
+                <button className="hover-vibrate-trigger px-8 py-4 rounded-full font-bold text-[16px] bg-[#111] text-white hover:bg-[#333] transition-all shadow-md">
                   Learn more
                 </button>
               </div>
@@ -774,15 +775,150 @@ export default function Home() {
           </div>
         </section>
 
+
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#2B3220] text-white py-10">
-        <div className="container mx-auto px-4 text-center">
-          <img src="/logo.png" alt="Stenvo" className="h-10 w-auto mx-auto mb-4 brightness-[10]" />
-          <p className="text-gray-400 text-sm mb-4">Turn your custom ideas into premium merchandise with zero upfront costs.</p>
-          <div className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Stenvo. All rights reserved.
+      <footer className="bg-[#111] text-white overflow-hidden">
+        {/* Main footer grid */}
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-20 pb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+
+            {/* Column 1: Logo + About + Contact */}
+            <div className="lg:col-span-4">
+              <div className="mb-8">
+                <img src="/logo.png" alt="Stenvo" className="h-10 w-auto mb-2 brightness-[10]" />
+                <p className="text-gray-400 text-[16px]">Your Tagline here</p>
+              </div>
+
+              <h4 className="text-[#9DF542] font-bold text-[20px] mb-4">About Us</h4>
+              <p className="text-white text-[16px] leading-[1.8] mb-8 font-medium">
+                We want to help bring talented students and unique startups together.
+              </p>
+
+              <h4 className="text-[#9DF542] font-bold text-[20px] mb-4">Contact Us</h4>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3 text-white text-[16px] font-medium">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9DF542" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.74a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  +91 9999 999 999
+                </div>
+                <div className="flex items-center gap-3 text-white text-[16px] font-medium">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9DF542" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  youremail@id.com
+                </div>
+              </div>
+            </div>
+
+            {/* Column 2: Information */}
+            <div className="lg:col-span-2 lg:ml-10">
+              <h4 className="text-[#9DF542] font-bold text-[20px] mb-6">Information</h4>
+              <ul className="flex flex-col gap-5">
+                {['About Us', 'More Search', 'Blog', 'Testimonials', 'Events'].map(link => (
+                  <li key={link}>
+                    <Link href="#" className="text-white text-[17px] font-medium hover:text-[#9DF542] transition-colors">{link}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Helpful Links */}
+            <div className="lg:col-span-2">
+              <h4 className="text-[#9DF542] font-bold text-[20px] mb-6">Helpful Links</h4>
+              <ul className="flex flex-col gap-5">
+                {['Services', 'Supports', 'Terms & Conditions', 'Privacy Policy'].map(link => (
+                  <li key={link}>
+                    <Link href="#" className="text-white text-[17px] font-medium hover:text-[#9DF542] transition-colors">{link}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4: Subscribe */}
+            <div className="lg:col-span-4">
+              <h4 className="text-white font-bold text-[20px] mb-6">Subscribe More Info</h4>
+              <div className="flex items-center gap-3 bg-white rounded-lg px-4 py-3 mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <input
+                  type="email"
+                  placeholder="Enter your Email"
+                  className="bg-transparent text-[16px] text-[#111] placeholder-gray-500 outline-none flex-1 font-medium"
+                />
+              </div>
+              <button className="hover-vibrate-trigger bg-[#9DF542] text-[#111] font-bold text-[17px] py-3 px-8 rounded-lg hover:bg-[#88DC2E] transition-colors w-max">
+                Subscribe
+              </button>
+
+              {/* Amazing Design - Trust Badge */}
+              <div className="mt-12 pt-8 border-t border-white/10 flex items-center gap-5">
+                {/* Rotating Stamp */}
+                <div className="relative flex items-center justify-center w-[90px] h-[90px]">
+                  <svg className="absolute inset-0 w-full h-full animate-spin" style={{ animationDuration: '10s' }} viewBox="0 0 100 100">
+                    <path
+                      id="textPath"
+                      d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                      fill="none"
+                    />
+                    <text className="text-[12.5px] font-bold font-mono tracking-[0.16em]" fill="rgba(255,255,255,0.4)">
+                      <textPath href="#textPath" startOffset="0%">
+                        • PREMIUM QUALITY • 100% SECURE 
+                      </textPath>
+                    </text>
+                  </svg>
+                  {/* Center Star */}
+                  <div className="text-[#9DF542]">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Info Text */}
+                <div className="flex flex-col gap-[2px]">
+                  <div className="flex gap-[3px] text-[#9DF542]">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                      </svg>
+                    ))}
+                  </div>
+                  <h5 className="text-white font-bold text-[18px] mt-1 tracking-wide">Top Rated Platform</h5>
+                  <p className="text-white/50 text-[15px] font-medium">Trusted by 10k+ creators</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/20">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+
+            <div className="md:w-1/3"></div>
+
+            {/* Social Icons (Centered) */}
+            <div className="md:w-1/3 flex items-center justify-center gap-4">
+              {/* Facebook */}
+              <a href="#" className="w-10 h-10 rounded-full bg-[#9DF542] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              </a>
+              {/* Twitter/X (Replaces Google+) */}
+              <a href="#" className="w-10 h-10 rounded-full bg-[#9DF542] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#111"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+              </a>
+              {/* Instagram */}
+              <a href="#" className="w-10 h-10 rounded-full bg-[#9DF542] flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+            </div>
+
+            {/* Copyright */}
+            <div className="md:w-1/3 flex justify-end">
+              <p className="text-white/70 text-[15px] font-medium">
+                2024 © company Ltd. All Right reserved
+              </p>
+            </div>
+
           </div>
         </div>
       </footer>
