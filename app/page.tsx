@@ -625,8 +625,9 @@ export default function Home() {
                 Follow this simple guide: choose your material, select a print house, design your product, and place your order.
               </p>
               <div>
-                <button className="bg-[#7ef98c] text-[#133227] px-8 py-3 rounded-xl font-bold text-[15px] hover:bg-[#6be079] transition-colors shadow-sm tracking-wide">
+                <button className="bg-white text-[#111] px-10 py-4 rounded-full font-bold text-[17px] hover-vibrate-trigger flex items-center justify-center gap-2 shadow-sm transition-all border border-gray-200/50">
                   Start designing
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-[1px]"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </button>
               </div>
             </div>
@@ -714,126 +715,65 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="relative w-full overflow-hidden bg-white pt-4 pb-32 border-t border-gray-100/50">
-          {/* Subtle Vertical Lines Container */}
-          <div className="absolute inset-0 flex justify-between px-4 sm:px-10 md:px-20 lg:px-32 xl:px-48 pointer-events-none opacity-[0.25] z-0">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="w-[1px] h-[85%] bg-gradient-to-b from-gray-300 via-gray-200 to-transparent relative">
-                {/* Randomly place small orange dashes on some lines */}
-                {i % 2 !== 0 && (
-                  <div className="absolute top-[60%] -left-[1px] w-[3px] h-6 bg-orange-400 rounded-full"></div>
-                )}
-                {i === 2 && (
-                  <div className="absolute top-[80%] -left-[1px] w-[3px] h-8 bg-orange-400 rounded-full"></div>
-                )}
-              </div>
-            ))}
-          </div>
+        {/* CTA Section */}
+        <section className="bg-white w-full overflow-hidden">
+          <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center min-h-[580px]">
 
-          <div className="relative max-w-[1600px] mx-auto min-h-[500px] lg:min-h-[700px] flex flex-col items-center justify-end px-4 z-10">
-            
-            {/* Desktop Scattered Grid of Images */}
-            <div className="absolute top-0 left-0 w-full h-[500px] hidden lg:block pointer-events-none">
-              
+            {/* Left: Illustration Panel */}
+            <div className="relative flex-1 flex items-end justify-center min-h-[420px] lg:min-h-[580px] w-full lg:w-auto bg-[#fde8d8] overflow-hidden">
+              {/* Big decorative circle */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[420px] h-[420px] rounded-full bg-[#f9d0b8]/60 pointer-events-none" />
 
+              {/* Team illustration image — colorful, vibrant */}
+              <img
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&fit=crop&crop=bottom"
+                alt="Team collaborating"
+                className="relative z-10 w-full max-w-[520px] h-[400px] lg:h-[520px] object-cover object-top"
+                style={{ maskImage: 'linear-gradient(to top, transparent 0%, black 18%)', WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 18%)' }}
+              />
 
-              {/* Box/Image 1 */}
-              <div className="absolute top-[8%] left-[2%] w-[120px] h-[140px] rounded-[1rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&fit=crop" className="w-full h-full object-cover" alt="User" />
-              </div>
+              {/* Bottom fade */}
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#fde8d8] to-transparent z-20 pointer-events-none" />
+            </div>
 
-              {/* Box/Image 2 */}
-              <div className="absolute top-[35%] left-[6%] w-[100px] h-[120px] rounded-[1rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&fit=crop" className="w-full h-full object-cover" alt="User" />
+            {/* Right: Text Content */}
+            <div className="flex-1 flex flex-col justify-center px-10 md:px-16 lg:px-20 py-16 lg:py-0 max-w-[640px]">
+
+              {/* Pill badge */}
+              <div className="inline-flex mb-6">
+                <span className="bg-[#fde8d8] text-[#b84c00] font-semibold text-[13px] px-4 py-1.5 rounded-full tracking-wide">
+                  Design. Print. Deliver — Zero Hassle
+                </span>
               </div>
 
-              {/* Box/Image 3 (higher up) */}
-              <div className="absolute top-[0%] left-[14%] w-[140px] h-[160px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
-              </div>
-
-              {/* Box/Image 4 */}
-              <div className="absolute top-[18%] left-[25%] w-[130px] h-[150px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
-              </div>
-
-              {/* Box/Image 5 (top middle) */}
-              <div className="absolute top-[-3%] left-[36%] w-[120px] h-[140px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&fit=crop" className="w-full h-full object-cover" alt="User" />
-              </div>
-
-              {/* Box/Image 6 */}
-              <div className="absolute top-[14%] left-[46%] w-[140px] h-[160px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
-              </div>
-
-              {/* Box/Image 7 */}
-              <div className="absolute top-[0%] left-[58%] w-[110px] h-[130px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
-              </div>
-
-              {/* Box/Image 8 (Lower Right) */}
-              <div className="absolute top-[20%] left-[67%] w-[130px] h-[150px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
-              </div>
-
-              {/* Box/Image 9 - The TILTED 3D one */}
-              <div 
-                className="absolute top-[30%] left-[78%] w-[150px] h-[170px] rounded-[1rem] overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] border-[8px] border-white pointer-events-auto transition-all duration-300 hover:rotate-0"
-                style={{ transform: 'perspective(1000px) rotateY(-12deg) rotateX(8deg) rotateZ(-2deg)' }}
+              {/* Headline */}
+              <h2
+                className="text-[52px] md:text-[64px] lg:text-[76px] font-black text-[#111] leading-[1.0] tracking-[-0.03em] mb-6"
+                style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
               >
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
-                {/* 3D reflection overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none mix-blend-overlay"></div>
-              </div>
-
-              {/* Box/Image 10 - Upper Right */}
-              <div className="absolute top-[-5%] left-[78%] w-[130px] h-[150px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
-              </div>
-
-              {/* Box/Image 11 - Right Edge */}
-              <div className="absolute top-[12%] left-[89%] w-[110px] h-[130px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1eb74e?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
-              </div>
-
-              {/* Box/Image 12 - Far Right Edge (Low) */}
-              <div className="absolute top-[37%] left-[91%] w-[120px] h-[140px] rounded-[1.2rem] overflow-hidden shadow-sm border-[4px] border-white pointer-events-auto transition-transform hover:-translate-y-2 hover:shadow-lg">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&fit=crop" className="w-full h-full object-cover object-top" alt="User" />
-              </div>
-            </div>
-
-            {/* Mobile simplified layout */}
-            <div className="grid grid-cols-3 gap-2 mb-12 lg:hidden w-full max-w-sm mx-auto">
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=150&fit=crop" className="w-full h-24 object-cover rounded-xl" alt="User" />
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&fit=crop" className="w-full h-24 object-cover rounded-xl" alt="User" />
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&fit=crop" className="w-full h-24 object-cover rounded-xl" alt="User" />
-            </div>
-
-            {/* Content Container */}
-            <div className="flex flex-col items-center text-center mt-20 lg:mt-56 z-20 w-full relative">
-              <span className="bg-[#f8f9fa] border border-gray-200/60 shadow-sm text-[#111] text-[15px] font-bold px-5 py-2 rounded-full mb-6">
-                Testimonials
-              </span>
-              
-              <h2 className="text-[42px] md:text-[64px] lg:text-[76px] font-bold text-[#111] leading-[1.05] tracking-[-0.03em] mb-6 max-w-4xl" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                Trusted by leaders <br className="hidden md:block"/>
-                <span className="text-[#a1a1aa] block mt-1">from various industries</span>
+                Create Merch,<br />Your Way
               </h2>
-              
-              <p className="text-[#52525b] text-[18px] md:text-[24px] font-medium leading-[1.6] max-w-[700px] mb-12 tracking-[-0.01em]">
-                Learn why professionals trust our solutions to complete their customer journeys.
+
+              {/* Description */}
+              <p className="text-[#52525b] text-[17px] md:text-[19px] leading-[1.65] mb-10 max-w-[480px] font-medium">
+                Design custom products, pick your print house, and get them delivered to your customers worldwide — all from one platform.
               </p>
-              
-              <button className="bg-[#111] text-white px-10 py-4 rounded-full font-semibold text-[17px] hover:bg-[#27272a] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg mb-8">
-                Read Success Stories
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-[1px]"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-              </button>
+
+              {/* Buttons */}
+              <div className="flex flex-wrap gap-4 items-center">
+                <button className="hover-vibrate-trigger bg-[#111] text-white px-8 py-4 rounded-full font-bold text-[16px] flex items-center gap-2 hover:bg-[#333] transition-all shadow-lg">
+                  Get Started for Free
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <button className="px-8 py-4 rounded-full font-bold text-[16px] border-2 border-gray-200 text-[#111] hover:border-gray-400 hover:bg-gray-50 transition-all">
+                  Learn more
+                </button>
+              </div>
             </div>
-            
+
           </div>
         </section>
+
       </main>
 
       {/* Footer */}
