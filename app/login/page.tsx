@@ -7,33 +7,49 @@ export default function LoginPage() {
       {/* Left Column - Image & Marketing */}
       <div className="hidden lg:flex flex-col relative w-[48%] xl:w-[45%] bg-zinc-900 flex-shrink-0 min-h-screen overflow-hidden">
         {/* Background Image Placeholder */}
-        <div className="absolute inset-0 z-0 bg-white overflow-hidden">
-           <img src="/pointer-guy.jpg" alt="Background" className="w-[110%] max-w-none h-full object-cover object-right absolute left-0 md:left-2 lg:left-6 xl:left-8 2xl:left-12 z-0" />
-           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/80 z-10"></div>
-           <div className="absolute inset-y-0 right-0 w-24 md:w-40 bg-gradient-to-r from-transparent to-[#f5f3e7] z-20 pointer-events-none"></div>
+        <div className="absolute inset-0 z-0 bg-[#111111] overflow-hidden">
+           <img src="/pointer-guy.jpg" alt="Background" className="w-[120%] max-w-none h-full object-cover object-[75%_center] absolute -left-4 md:left-10 z-0" />
+           <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/40 to-transparent z-10"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent z-10 w-full h-[50%] top-auto bottom-0"></div>
+           <div className="absolute inset-y-0 right-0 w-20 md:w-28 bg-gradient-to-r from-transparent to-[#f5f3e7] z-20 pointer-events-none opacity-80"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col pt-16 px-12 xl:px-16 text-white h-full">
-          {/* Headline */}
-          <h1 className="text-[52px] xl:text-[62px] font-black leading-none uppercase tracking-tight" style={{ fontFamily: 'Impact, sans-serif' }}>
-            <span className="block mb-1 drop-shadow-md">SMALL PRODUCT,</span>
-            <span className="bg-[#2DC1DB] text-white px-3 py-1 -ml-3 inline-block shadow-md">BIG PROFIT</span>
-            <span className="block mt-1 drop-shadow-md">POTENTIAL</span>
-          </h1>
-          
-          {/* Subtext */}
-          <p className="mt-8 text-[15.5px] xl:text-[17px] font-medium leading-[1.6] opacity-95 max-w-md drop-shadow-lg">
-            Phone cases are year-round profit-makers that smartphone users can't get enough of.
-          </p>
-          <p className="mt-4 text-[15.5px] xl:text-[17px] font-medium leading-[1.6] opacity-95 max-w-md drop-shadow-lg">
-            Add your designs to popular cases, like the new Samsung Galaxy S24 options, and plug them as the perfect add-on to any order.
-          </p>
+        <div className="relative z-10 flex flex-col justify-between pt-16 pb-12 px-10 xl:px-14 text-white h-full w-full">
+          {/* Top Spacer */}
+          <div></div>
+
+          <div className="mt-auto max-w-[360px] xl:max-w-[400px]">
+             {/* Small line decoration */}
+             <div className="w-12 h-1.5 bg-[#A1FF4C] mb-8 rounded-full shadow-[0_0_15px_rgba(161,255,76,0.5)]"></div>
+
+            {/* Headline */}
+            <h1 className="text-[42px] xl:text-[50px] font-black leading-[1.05] uppercase tracking-wide mb-8 drop-shadow-2xl" style={{ fontFamily: 'Impact, sans-serif' }}>
+              <span className="block text-white mb-2">SMALL PRODUCT,</span>
+              <span className="bg-[#2DC1DB] text-white px-3 py-1.5 -ml-1 inline-block shadow-lg leading-none transform -skew-x-6">
+                <span className="block transform skew-x-6">BIG PROFIT</span>
+              </span>
+              <span className="block text-white mt-3">POTENTIAL</span>
+            </h1>
+            
+            {/* Subtext enclosed in a beautiful glass card */}
+            <div className="backdrop-blur-xl bg-white/10 border border-white/20 p-6 rounded-2xl shadow-2xl relative overflow-hidden group hover:bg-white/15 transition-all duration-300">
+              {/* Accent border on the left */}
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-[#2DC1DB] to-[#A1FF4C]"></div>
+              
+              <p className="text-[14.5px] xl:text-[15.5px] font-medium leading-[1.7] text-gray-100 mb-4 opacity-100 drop-shadow-md">
+                Phone cases are year-round profit-makers that smartphone users can't get enough of.
+              </p>
+              <p className="text-[14.5px] xl:text-[15.5px] font-medium leading-[1.7] text-gray-100 opacity-100 drop-shadow-md">
+                Add your designs to popular cases, like the new <span className="text-white font-bold bg-white/20 px-1.5 py-0.5 rounded ml-0.5 shadow-sm">Samsung Galaxy S24</span> options, and plug them as the perfect add-on to any order.
+              </p>
+            </div>
+          </div>
 
           {/* Bottom Chat Icon */}
-          <div className="mt-auto pb-10">
-            <div className="w-14 h-14 bg-[#454c30] border border-white/20 rounded-xl flex items-center justify-center cursor-pointer shadow-lg hover:bg-[#525a3a] transition-colors">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <div className="mt-12 flex items-center justify-between">
+            <div className="w-14 h-14 bg-[#A1FF4C] text-black border-2 border-transparent rounded-[18px] flex items-center justify-center cursor-pointer shadow-[0_8px_20px_rgba(161,255,76,0.3)] hover:bg-[#8ee53f] hover:-translate-y-1 transition-all duration-300">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                 <line x1="9" y1="9" x2="15" y2="9"></line>
                 <line x1="9" y1="13" x2="15" y2="13"></line>
